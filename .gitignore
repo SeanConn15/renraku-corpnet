@@ -11,6 +11,8 @@
 
 # yarn
 yarn.lock
+.yarn
+.yarnrc.yml
 
 # misc
 .DS_Store

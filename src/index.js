@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Blog from './Blog';
+import Main from './Main';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Blog />
-  </React.StrictMode>,
+    <Main />,
   document.getElementById('root')
 );
 
