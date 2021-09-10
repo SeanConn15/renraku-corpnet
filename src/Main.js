@@ -33,16 +33,8 @@ const theme = createTheme({
     }
 });
 
-export default class Main extends React.Component
+export default function Main()
 {
-  constructor(props) {
-      super(props);
-        
-  }
-
-  render() {
-
-
       return (
           <Router>
           <ThemeProvider theme={theme}>
@@ -60,6 +52,5 @@ export default class Main extends React.Component
             </ThemeProvider>
           </Router>
       );
-  }
 
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -8,6 +9,30 @@ import FeaturedPost from './FeaturedPost';
 import Sidebar from './Sidebar';
 
 
+const drawerWidth = 240;
+
+const useStyles = makeStyles((theme) => ({
+      root: {
+              display: 'flex',
+            },
+      ToolBar: {
+              zIndex: theme.zIndex.drawer + 1,
+            },
+      drawer: {
+              width: drawerWidth,
+              flexShrink: 0,
+            },
+      drawerPaper: {
+              width: drawerWidth,
+            },
+      drawerContainer: {
+              overflow: 'auto',
+            },
+      content: {
+              flexGrow: 1,
+              padding: theme.spacing(3),
+            },
+}));
 
 const mainFeaturedPost = {
   title: 'Welcome to Renraku Computer Systems',

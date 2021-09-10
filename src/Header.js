@@ -32,8 +32,7 @@ export default function Header(props) {
 
   return (
     <React.Fragment>
-      <Toolbar className={classes.toolbar}>
-        <Button size="small">Subscribe</Button>
+      <Toolbar id="top" className={classes.toolbar}>
         <Typography
           component="h2"
           variant="h5"
@@ -56,12 +55,6 @@ export default function Header(props) {
             </Link>
 
         </Typography>
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
-        <Button variant="outlined" size="small">
-          Sign up
-        </Button>
       </Toolbar>
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map((section) => (
