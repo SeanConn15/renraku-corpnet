@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
+import AppBar from '@material-ui/core/AppBar';
+import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
@@ -32,15 +34,8 @@ export default function Header(props) {
 
   return (
     <React.Fragment>
-      <Toolbar id="top" className={classes.toolbar}>
-        <Typography
-          component="h2"
-          variant="h5"
-          color="inherit"
-          align="center"
-          noWrap
-          className={classes.toolbarTitle}
-        >
+<AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+        <Toolbar>
             <Link 
                   color="inherit"
                   noWrap
@@ -51,22 +46,22 @@ export default function Header(props) {
                   className={classes.toolbarLink}
           >
 
-          {title}
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              {title}
+          </Typography>
             </Link>
-
-        </Typography>
-      </Toolbar>
-      <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map((section) => (
-          <Link
+          <Button
             component={RouterLink}
             to={section.url}
             color="inherit"
           > 
             {section.title} 
-          </Link>
+          </Button>
         ))}
-      </Toolbar>
+
+        </Toolbar>
+      </AppBar>
     </React.Fragment>
   );
 }

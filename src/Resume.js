@@ -22,15 +22,54 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 import { Link as RouterLink } from "react-router-dom";
 
+import Header from './Header';
+
+const sections = [
+  { title: 'Mission Statement', url: '/mission' },
+  { title: 'Resume', url: '/resume' },
+];
+
+const hobbies = [
+      'Board Gaming (Shadowrun, DnD)',
+      'Cycling',
+      'Calisthenics',
+]
+
+const languages = [
+          'C',
+          'C++',
+          'Java',
+          'Javascript',
+          'C#',
+          'Python',
+          'BASIC',
+          'BASH',
+          'CSS/HTML',
+          'ARM Assembly',
+]
+
+const sysProgramming = [
+          'Implemented a shell which worked similar to bash that supports piping as well as input and output redirection',
+          'Developed a memory management function which allocates and frees arbitrary memory sizes dynamically, similar to malloc',
+]
+
+const operatingSystems = [
+          'Programmed OS level code for a Process Scheduler, as well as implemented a piping system calls in XINU, a linux like environment',
+          'Created and modified OS level data structures for mutual exclusion, inter-process communication and process runtime/timing',
+]
+
 const drawerWidth = 240;
+
 
 
 const useStyles = makeStyles((theme) => ({
       root: {
               display: 'flex',
-            }, ToolBar: {
+            }, 
+      AppBar: {
               zIndex: theme.zIndex.drawer + 1,
             },
       drawer: {
@@ -47,6 +86,7 @@ const useStyles = makeStyles((theme) => ({
               flexGrow: 1,
               padding: theme.spacing(3),
             },
+
 }));
 
 
@@ -66,6 +106,22 @@ function NormalListItem(props) {
       </ListItemIcon>
       <ListItemText primary={props.text} />
     </ListItem>
+}
+
+function UnorderedList(props) {
+    return <div>
+          <Typography id="skills" variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            {props.title}
+          </Typography>
+        <ul>
+        {props.list.map((item) => (
+            <li>
+            {item}
+            </li>
+        ))}
+    </ul>
+        </div>
+
 }
 
 
@@ -91,9 +147,22 @@ export default function Resume()
       const classes = useStyles();
       return (
       <div>
+
+      <Header title="------------------------------- Renraku Computer Systems" sections={sections} />
+        <Box sx={{ display: 'flex' }}>
           <Drawer
             variant="permanent"
             open="true"
+            sx={{
+              width: drawerWidth,
+              flexShrink: 0,
+              '& .MuiDrawer-paper': {
+                width: drawerWidth,
+                boxSizing: 'border-box',
+              },
+            }}
+            variant="permanent"
+            anchor="left"
             classes={{
                 paper: classes.drawer,
             }}>
@@ -101,9 +170,11 @@ export default function Resume()
             <List>{mainListItems}</List>
             <Divider />
             <List>{secondaryListItems}</List>
-
           </Drawer>
-          <Container maxwidth="lg">
+          <Box
+            component="main"
+            sx={{ 'margin-left': drawerWidth, flexGrow: 1, bgcolor: 'background.default', p: 3 }}
+          >
           <p id="experience" >RELEVANT WORK EXPERIENCE</p>
             <Grid
               container
@@ -112,6 +183,8 @@ export default function Resume()
               alignItems="flex-start"
               spacing="3"
             >
+
+
               <Grid item xs={6}>
                   <Card>
                       <CardContent>
@@ -125,13 +198,20 @@ export default function Resume()
                       August 2020 – Present
                     </Typography>
                       Worked in conjunction with the space systems department to develop enterprise space software
+          <br/>
                       Collaborated with other engineers using the SCRUM methodology
+          <br/>
                       Diagnosed existing software to correct errors
+          <br/>
                       Communicated with subject matter experts across the company and outside
+          <br/>
                       Rapidly learned and applied programming concepts to effectively work on new project areas
+          <br/>
                       Debugged issues that included navigating though frontend, networking, and backend code in a
                       dynamic enviornment
+          <br/>
                       Obtained a top secret clearance for the position
+          <br/>
 
                       </CardContent>
                   </Card>
@@ -149,8 +229,10 @@ export default function Resume()
                         May 2019 – August 2019
                     </Typography>
                         Wrote software that worked to efficiently configure products to customer specifications
+          <br/>
           The developed software took customer specifications to create a complete bill of materials and
           labor to get a cost and final price of the product usable during sales calls
+          <br/>
           Worked in a collaborative environment which required effective cross departmental
           communication between management, engineering, accounting and sales
                       </CardContent>
@@ -187,80 +269,34 @@ export default function Resume()
                     <Typography className={classes.pos} color="textSecondary">
                         January 2020 – May 2020
                     </Typography>
-                Bachelor of Science: Computer Science, Security & Software Engineering Tracks
+                 Bachelor of Science: Computer Science
+          <br/>
+          Security & Software Engineering Tracks
+          <br/>
                 Minor: History
+          <br/>
                       </CardContent>
                   </Card>
               </Grid>
-          <p id="skills"> Relevant Skills </p>
-          <p> Languages </p>
+          <Typography id="skills" variant="h5" component="div" sx={{ flexGrow: 1 }}>
+            Relevant Skills
+          </Typography>
+          <UnorderedList title="Languages" list={languages} />
           <ul>
-          <li>
-          C
-          </li>
-          <li>
-          C++
-          </li>
-          <li>
-          Java
-          </li>
-          <li>
-          Javascript
-          </li>
-          <li>
-          C#
-          </li>
-          <li>
-          Python
-          </li>
-          <li>
-          BASIC
-          </li>
-          <li>
-          BASH
-          </li>
-          <li>
-          CSS/HTML
-          </li>
-          <li>
-          ARM Assembly
-          </li>
           </ul>
 
-          Systems Programming
-          <ul>
-          <li>
-          Implemented a shell which worked similar to bash that supports piping as well as input and output redirection
-          </li>
-          <li>
-          Developed a memory management function which allocates and frees arbitrary memory sizes dynamically, similar to malloc
-          </li>
-          </ul>
+          <UnorderedList title='Systems Programming' list={sysProgramming} />
 
-          Operating Systems
-          <ul>
-          <li>
-          Programmed OS level code for a Process Scheduler, as well as implemented a piping system calls in XINU, a linux like environment
-          </li>
-          <li>
-          Created and modified OS level data structures for mutual exclusion, inter-process communication and process runtime/timing
-          </li>
-          </ul>
+          <UnorderedList title='Operating Systems' list={operatingSystems} />
 
-          <p id="hobbies"> Hobbies/Interests </p>
+          <UnorderedList title = 'Hobbies/Interests' list={hobbies} />
 
-          <ul>
-          <li>
-          Board Gaming (Shadowrun, DnD)
-          </li>
-          <li>
-          Cycling
-          </li>
-          <li>
-          Calisthenics
-          </li>
-          </ul>
-          </Container>
+          <UnorderedList title = 'Websites' list={['This website']}/>
+
+          <UnorderedList title = 'Anrdoid Development' list={['Open Source contributions to Organic Maps; a google maps alternative']}/>
+
+          </Box>
+      </Box>
 
       </div>
       );

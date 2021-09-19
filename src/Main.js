@@ -7,7 +7,7 @@ import {
 import { ThemeProvider } from '@material-ui/core/styles';
 import { createTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Header from './Header';
+
 import Homepage from './Homepage';
 import Resume from './Resume';
 import Footer from './Footer';
@@ -39,7 +39,6 @@ export default function Main()
           <Router>
           <ThemeProvider theme={theme}>
               <CssBaseline />
-              <Header zIndex="1400" title="Renraku Computer Systems" sections={sections} />
               <Switch>
                 <Route path="/resume">
                     <Resume />

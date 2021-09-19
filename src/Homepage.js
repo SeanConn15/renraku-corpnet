@@ -4,10 +4,17 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost';
-import Sidebar from './Sidebar';
+import Box from '@material-ui/core/Box';
+import MainFeaturedPost from './MainFeaturedPost'
+import FeaturedPost from './FeaturedPost'
 
+import Sidebar from './Sidebar';
+import Header from './Header';
+
+const sections = [
+  { title: 'Mission Statement', url: '/mission' },
+  { title: 'Resume', url: '/resume' },
+];
 
 const drawerWidth = 240;
 
@@ -15,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
       root: {
               display: 'flex',
             },
-      ToolBar: {
+      AppBar: {
               zIndex: theme.zIndex.drawer + 1,
             },
       drawer: {
@@ -86,6 +93,8 @@ export default class Main extends React.Component
   render() {
 
       return (
+          <div>
+      <Header title="Renraku Computer Systems" sections={sections} />
               <Container maxWidth="lg">
                 <main>
                   <MainFeaturedPost post={mainFeaturedPost} />
@@ -103,6 +112,7 @@ export default class Main extends React.Component
                   </Grid>
                 </main>
               </Container>
+          </div>
       );
   }
 
