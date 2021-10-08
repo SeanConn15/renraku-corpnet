@@ -1,29 +1,24 @@
 import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
-import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import DashboardIcon from '@material-ui/icons/Dashboard';
 import WorkIcon from '@material-ui/icons/Work';
 import HelpIcon from '@material-ui/icons/Help';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import SchoolIcon from '@material-ui/icons/School';
 import CategoryIcon from '@material-ui/icons/Category';
-import AssignmentIcon from '@material-ui/icons/Assignment';
 import EmailIcon from '@material-ui/icons/Email';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { Link as RouterLink } from "react-router-dom";
+import { useTheme } from '@material-ui/core/styles';
 
 import Header from './Header';
 
@@ -65,39 +60,6 @@ const drawerWidth = 240;
 
 
 
-const useStyles = makeStyles((theme) => ({
-      root: {
-              display: 'flex',
-            }, 
-      AppBar: {
-              zIndex: theme.zIndex.drawer + 1,
-            },
-      drawer: {
-              width: drawerWidth,
-              flexShrink: 0,
-            },
-      drawerPaper: {
-              width: drawerWidth,
-            },
-      drawerContainer: {
-              overflow: 'auto',
-            },
-      content: {
-              flexGrow: 1,
-              padding: theme.spacing(3),
-            },
-
-}));
-
-
-function RoutedListItem(props) {
-    return <ListItem component={RouterLink} to={props.to} button>
-      <ListItemIcon>
-        {props.icon}
-      </ListItemIcon>
-      <ListItemText primary={props.text} />
-    </ListItem>
-}
 
 function NormalListItem(props) {
     return <ListItem href={props.to} component="a" button>
@@ -138,17 +100,17 @@ const mainListItems = (
 const secondaryListItems = (
   <div>
     <NormalListItem to="mailto:seanconn256@protonmail.com" text="Contact Me" icon=<EmailIcon/> />
-    <NormalListItem to="/" text="Source Code" icon=<GitHubIcon/> />
+    <NormalListItem to="https://github.com/SeanConn15" text="Source Code" icon=<GitHubIcon/> />
   </div>
 );
 
 export default function Resume()
 {
-      const classes = useStyles();
+      const theme = useTheme()
       return (
       <div>
 
-      <Header title="------------------------------- Renraku Computer Systems" sections={sections} />
+      <Header title="Renraku Computer Systems" sections={sections} />
         <Box sx={{ display: 'flex' }}>
           <Drawer
             variant="permanent"
@@ -156,16 +118,15 @@ export default function Resume()
             sx={{
               width: drawerWidth,
               flexShrink: 0,
+              zIndex: theme.zIndex.drawer,
               '& .MuiDrawer-paper': {
                 width: drawerWidth,
                 boxSizing: 'border-box',
               },
             }}
-            variant="permanent"
             anchor="left"
-            classes={{
-                paper: classes.drawer,
-            }}>
+            >
+          <Toolbar />
             <Divider />
             <List>{mainListItems}</List>
             <Divider />
@@ -191,10 +152,10 @@ export default function Resume()
                     <Typography variant="h5" component="h2">
                       Northrop Grumman, Mission Systems
                     </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
+                    <Typography  color="textSecondary">
                       Associate Security Software Engineer
                     </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
+                    <Typography  color="textSecondary">
                       August 2020 – Present
                     </Typography>
                       Worked in conjunction with the space systems department to develop enterprise space software
@@ -222,10 +183,10 @@ export default function Resume()
                     <Typography variant="h5" component="h2">
                         Aero Industries, Engineering Department
                     </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
+                    <Typography  color="textSecondary">
                         Engineering Intern
                     </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
+                    <Typography  color="textSecondary">
                         May 2019 – August 2019
                     </Typography>
                         Wrote software that worked to efficiently configure products to customer specifications
@@ -244,10 +205,10 @@ export default function Resume()
                     <Typography variant="h5" component="h2">
                         Jimmy John’s
                     </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
+                    <Typography  color="textSecondary">
                         Delivery Driver
                     </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
+                    <Typography  color="textSecondary">
                         January 2020 – May 2020
                     </Typography>
           Maintained work for approximately 20 hours weekly through the academic semester while a
@@ -263,10 +224,10 @@ export default function Resume()
                     <Typography variant="h5" component="h2">
                         Purdue University
                     </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
+                    <Typography  color="textSecondary">
                         West Lafayette
                     </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
+                    <Typography  color="textSecondary">
                         January 2020 – May 2020
                     </Typography>
                  Bachelor of Science: Computer Science

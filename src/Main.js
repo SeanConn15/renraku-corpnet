@@ -11,11 +11,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Homepage from './Homepage';
 import Resume from './Resume';
 import Footer from './Footer';
-
-const sections = [
-  { title: 'Mission Statement', url: '/mission' },
-  { title: 'Resume', url: '/resume' },
-];
+import Box from '@material-ui/core/Box';
 
 const theme = createTheme({
       palette: {
@@ -30,7 +26,11 @@ const theme = createTheme({
                     background: "#A30707",
                 },
            },
-    }
+    },
+        zIndex: {
+            drawer: "0 !important",
+            appBar: "10 !important",
+        },
 });
 
 export default function Main()
@@ -39,6 +39,7 @@ export default function Main()
           <Router>
           <ThemeProvider theme={theme}>
               <CssBaseline />
+              <Box>
               <Switch>
                 <Route path="/resume">
                     <Resume />
@@ -47,6 +48,7 @@ export default function Main()
                     <Homepage />
                 </Route>
               </Switch>
+              </Box>
               <Footer title="Attributions" description="Renraku Computer Systems is a fictional company from the tabletop game Shadowrun." />
             </ThemeProvider>
           </Router>

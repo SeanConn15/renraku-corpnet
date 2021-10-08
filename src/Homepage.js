@@ -1,10 +1,8 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import Box from '@material-ui/core/Box';
 import MainFeaturedPost from './MainFeaturedPost'
 import FeaturedPost from './FeaturedPost'
 
@@ -16,30 +14,6 @@ const sections = [
   { title: 'Resume', url: '/resume' },
 ];
 
-const drawerWidth = 240;
-
-const useStyles = makeStyles((theme) => ({
-      root: {
-              display: 'flex',
-            },
-      AppBar: {
-              zIndex: theme.zIndex.drawer + 1,
-            },
-      drawer: {
-              width: drawerWidth,
-              flexShrink: 0,
-            },
-      drawerPaper: {
-              width: drawerWidth,
-            },
-      drawerContainer: {
-              overflow: 'auto',
-            },
-      content: {
-              flexGrow: 1,
-              padding: theme.spacing(3),
-            },
-}));
 
 const mainFeaturedPost = {
   title: 'Welcome to Renraku Computer Systems',
