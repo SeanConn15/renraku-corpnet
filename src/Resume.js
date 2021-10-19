@@ -23,7 +23,6 @@ import { useTheme } from '@material-ui/core/styles';
 import Header from './Header';
 
 const sections = [
-  { title: 'Mission Statement', url: '/mission' },
   { title: 'Resume', url: '/resume' },
 ];
 
@@ -34,24 +33,38 @@ const hobbies = [
 ]
 
 const languages = [
-          'C',
-          'C++',
-          'Java',
-          'Javascript',
-          'C#',
-          'Python',
-          'BASIC',
-          'BASH',
-          'CSS/HTML',
-          'ARM Assembly',
+    'High Level:',
+    'C++',
+    'Javascript',
+    'Bash',
+    'React',
+    'Java',
+    'Low Level:',
+    'C',
+    'ARM Assembly',
+    'x86 Assembly',
+    'Technologies:',
+    'Docker',
+    'Ansible',
+    'Git',
+    'Atlassian Suite',
+    'Linux',
 ]
 
-const sysProgramming = [
+const workTechnologies = [
+    'Worked with docker and ansible for enterprise software deployments to multiple customers targeting different feature sets',
+    'Used atlassian suite to coordinate, review, and publish pull requests and do code reviews',
+    'Very familiar with git'
+]
+
+const outsideTechnologies = [
+    'Contribued to open source projects like OrganicMaps in free time, doing android app development in Java and C++',
+    'Wrote this website in React'
+]
+
+const classWork = [
           'Implemented a shell which worked similar to bash that supports piping as well as input and output redirection',
           'Developed a memory management function which allocates and frees arbitrary memory sizes dynamically, similar to malloc',
-]
-
-const operatingSystems = [
           'Programmed OS level code for a Process Scheduler, as well as implemented a piping system calls in XINU, a linux like environment',
           'Created and modified OS level data structures for mutual exclusion, inter-process communication and process runtime/timing',
 ]
@@ -76,12 +89,12 @@ function UnorderedList(props) {
             {props.title}
           </Typography>
         <ul>
-        {props.list.map((item) => (
-            <li>
-            {item}
-            </li>
-        ))}
-    </ul>
+            {props.list.map((item) => (
+                <li>
+                {item}
+                </li>
+            ))}
+        </ul>
         </div>
 
 }
@@ -109,7 +122,6 @@ export default function Resume()
       const theme = useTheme()
       return (
       <div>
-
       <Header title="Renraku Computer Systems" sections={sections} />
         <Box sx={{ display: 'flex' }}>
           <Drawer
@@ -126,135 +138,145 @@ export default function Resume()
             }}
             anchor="left"
             >
-          <Toolbar />
-            <Divider />
-            <List>{mainListItems}</List>
-            <Divider />
-            <List>{secondaryListItems}</List>
+            <Toolbar />
+              <Divider />
+              <List>{mainListItems}</List>
+              <Divider />
+              <List>{secondaryListItems}</List>
           </Drawer>
           <Box
             component="main"
             sx={{ 'margin-left': drawerWidth, flexGrow: 1, bgcolor: 'background.default', p: 3 }}
           >
-          <p id="experience" >RELEVANT WORK EXPERIENCE</p>
-            <Grid
-              container
-              direction="row"
-              justifyContent="flex-start"
-              alignItems="flex-start"
-              spacing="3"
-            >
+            <p id="experience" >RELEVANT WORK EXPERIENCE</p>
+              <Grid
+                container
+                direction="row"
+                justifyContent="flex-start"
+                alignItems="flex-start"
+                spacing="3"
+              >
 
 
-              <Grid item xs={6}>
-                  <Card>
-                      <CardContent>
-                    <Typography variant="h5" component="h2">
-                      Northrop Grumman, Mission Systems
-                    </Typography>
-                    <Typography  color="textSecondary">
-                      Associate Security Software Engineer
-                    </Typography>
-                    <Typography  color="textSecondary">
-                      August 2020 – Present
-                    </Typography>
-                      Worked in conjunction with the space systems department to develop enterprise space software
-          <br/>
-                      Collaborated with other engineers using the SCRUM methodology
-          <br/>
-                      Diagnosed existing software to correct errors
-          <br/>
-                      Communicated with subject matter experts across the company and outside
-          <br/>
-                      Rapidly learned and applied programming concepts to effectively work on new project areas
-          <br/>
-                      Debugged issues that included navigating though frontend, networking, and backend code in a
-                      dynamic enviornment
-          <br/>
-                      Obtained a top secret clearance for the position
-          <br/>
-
-                      </CardContent>
-                  </Card>
+                <Grid item xs={12} md={6} lg={4}>
+                    <Card>
+                        <CardContent>
+                          <Typography variant="h5" component="h2">
+                            Northrop Grumman, Mission Systems
+                          </Typography>
+                          <Typography  color="textSecondary">
+                            Associate Security Software Engineer
+                          </Typography>
+                          <Typography  color="textSecondary">
+                            August 2020 – Present
+                          </Typography>
+                            Worked in conjunction with the space systems department to develop enterprise space software
+                          <br/>
+                            Collaborated with other engineers using the SCRUM methodology
+                          <br/>
+                            Diagnosed existing software to correct errors
+                          <br/>
+                            Communicated with subject matter experts across the company and outside
+                          <br/>
+                            Rapidly learned and applied programming concepts to effectively work on new project areas
+                          <br/>
+                            Debugged issues that included navigating though frontend, networking, and backend code in a
+                            dynamic enviornment
+                          <br/>
+                            Obtained a top secret clearance for the position
+                          <br/>
+                        </CardContent>
+                    </Card>
+                </Grid>
+                <Grid item xs={12} md={6} xl={4}>
+                    <Card>
+                        <CardContent>
+                      <Typography variant="h5" component="h2">
+                          Aero Industries, Engineering Department
+                          </Typography>
+                          <Typography  color="textSecondary">
+                            Engineering Intern
+                          </Typography>
+                          <Typography  color="textSecondary">
+                            May 2019 – August 2019
+                          </Typography>
+                            Wrote software that worked to efficiently configure products to customer specifications
+                          <br/>
+                            The developed software took customer specifications to create a complete bill of materials and
+                            labor to get a cost and final price of the product usable during sales calls
+                          <br/>
+                            Worked in a collaborative environment which required effective cross departmental
+                            communication between management, engineering, accounting and sales
+                        </CardContent>
+                    </Card>
+                </Grid>
               </Grid>
-              <Grid item xs={6}>
-                  <Card>
+
+              <Grid
+                container
+                direction="row"
+                justifyContent="flex-start"
+                alignItems="flex-start"
+                spacing="3"
+              >
+                <Grid item xs={12} md={4} lg={3}>
+                    <Card>
                       <CardContent>
-                    <Typography variant="h5" component="h2">
-                        Aero Industries, Engineering Department
-                    </Typography>
-                    <Typography  color="textSecondary">
-                        Engineering Intern
-                    </Typography>
-                    <Typography  color="textSecondary">
-                        May 2019 – August 2019
-                    </Typography>
-                        Wrote software that worked to efficiently configure products to customer specifications
-          <br/>
-          The developed software took customer specifications to create a complete bill of materials and
-          labor to get a cost and final price of the product usable during sales calls
-          <br/>
-          Worked in a collaborative environment which required effective cross departmental
-          communication between management, engineering, accounting and sales
-                      </CardContent>
-                  </Card>
-              </Grid>
-              <Grid item xs={4}>
-                  <Card>
-                      <CardContent>
-                    <Typography variant="h5" component="h2">
+                      <Typography variant="h5" component="h2">
                         Jimmy John’s
-                    </Typography>
-                    <Typography  color="textSecondary">
+                      </Typography>
+                      <Typography  color="textSecondary">
                         Delivery Driver
-                    </Typography>
-                    <Typography  color="textSecondary">
+                      </Typography>
+                      <Typography  color="textSecondary">
                         January 2020 – May 2020
-                    </Typography>
-          Maintained work for approximately 20 hours weekly through the academic semester while a
-          full-time student
+                      </Typography>
+                        Maintained work for approximately 20 hours weekly through the academic semester while a
+                        full-time student
                       </CardContent>
-                  </Card>
+                    </Card>
+                </Grid>
               </Grid>
-            </Grid>
+          <br/>
           <p id="education"> EDUCATION </p>
               <Grid item xs={4}>
                   <Card>
-                      <CardContent>
+                  <CardContent>
                     <Typography variant="h5" component="h2">
-                        Purdue University
+                      Purdue University
                     </Typography>
                     <Typography  color="textSecondary">
-                        West Lafayette
+                      West Lafayette
                     </Typography>
                     <Typography  color="textSecondary">
-                        January 2020 – May 2020
+                      January 2020 – May 2020
                     </Typography>
-                 Bachelor of Science: Computer Science
-          <br/>
-          Security & Software Engineering Tracks
-          <br/>
-                Minor: History
-          <br/>
-                      </CardContent>
+                      Bachelor of Science: Computer Science
+                      <br/>
+                      Security & Software Engineering Tracks
+                      <br/>
+                            Minor: History
+                      <br/>
+                  </CardContent>
                   </Card>
               </Grid>
+          <br />
           <Typography id="skills" variant="h5" component="div" sx={{ flexGrow: 1 }}>
             Relevant Skills
           </Typography>
           <UnorderedList title="Languages" list={languages} />
-          <ul>
-          </ul>
 
-          <UnorderedList title='Systems Programming' list={sysProgramming} />
+          <UnorderedList title='Technology Experience' list={workTechnologies} />
 
-          <UnorderedList title='Operating Systems' list={operatingSystems} />
+          <UnorderedList title='Outside Experience' list={outsideTechnologies} />
 
-          <UnorderedList title = 'Hobbies/Interests' list={hobbies} />
+          <UnorderedList title='Classwork' list={classWork} />
 
-          <UnorderedList title = 'Websites' list={['This website']}/>
+          <UnorderedList title='Hobbies/Interests' list={hobbies} />
 
-          <UnorderedList title = 'Anrdoid Development' list={['Open Source contributions to Organic Maps; a google maps alternative']}/>
+          <UnorderedList title='Websites' list={['This website']}/>
+
+          <UnorderedList title='Anrdoid Development' list={['Open Source contributions to Organic Maps; a google maps alternative']}/>
 
           </Box>
       </Box>

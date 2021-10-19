@@ -10,7 +10,6 @@ import Sidebar from './Sidebar';
 import Header from './Header';
 
 const sections = [
-  { title: 'Mission Statement', url: '/mission' },
   { title: 'Resume', url: '/resume' },
 ];
 
@@ -47,7 +46,7 @@ const featuredPosts = [
 const sidebar = {
   title: 'About',
   description:
-    'Renraku Computer Systems serves the entirety of the sprawl with high-quality high-secuirty technological devices for anything from matrix surfing to everyday communication. We also specailize in private security, arcologies, weapons development, offensive cyber equiptment and training, hyper available data storage, and Intrusion CountermEasures, including black ICE.',
+    'Renraku Computer Systems serves the entirety of the sprawl with high-quality high-secuirty technological devices for anything from matrix surfing to everyday communication. We also specailize in private security, arcologies, weapons development, offensive cyber equiptment and training, hyper available data storage, and Intrusion Countermeasures, including black ICE.',
   social: [
     { name: 'GitHub', link: "https://github.com/SeanConn15", icon: GitHubIcon },
     { name: 'LinkedIn', link: "https://www.linkedin.com/in/seanconn256/", icon: LinkedInIcon},
