@@ -1,21 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
-
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'This webpage Copyright © '}
+      {"This webpage Copyright © "}
       <Link color="inherit" href="mailto:seanconn256@protonmail.com">
         Sean Connelly
       </Link>
-      {', '}
+      {", "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -27,26 +26,26 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     // marginTop: theme.spacing(8),
     padding: theme.spacing(6, 0),
-      root: {
-              display: 'flex',
-            },
-      ToolBar: {
-              zIndex: theme.zIndex.drawer + 1,
-            },
-      drawer: {
-              width: drawerWidth,
-              flexShrink: 0,
-            },
-      drawerPaper: {
-              width: drawerWidth,
-            },
-      drawerContainer: {
-              overflow: 'auto',
-            },
-      content: {
-              flexGrow: 1,
-              padding: theme.spacing(3),
-            },
+    root: {
+      display: "flex",
+    },
+    ToolBar: {
+      zIndex: theme.zIndex.drawer + 1,
+    },
+    drawer: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+    drawerPaper: {
+      width: drawerWidth,
+    },
+    drawerContainer: {
+      overflow: "auto",
+    },
+    content: {
+      flexGrow: 1,
+      padding: theme.spacing(3),
+    },
   },
 }));
 
@@ -60,7 +59,12 @@ export default function Footer(props) {
         <Typography variant="h6" align="center" gutterBottom>
           {title}
         </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+        <Typography
+          variant="subtitle1"
+          align="center"
+          color="textSecondary"
+          component="p"
+        >
           {description}
         </Typography>
         <Copyright />
