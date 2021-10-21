@@ -1,19 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Toolbar from "@material-ui/core/Toolbar";
-import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
+import Toolbar from "@mui/material/Toolbar";
+import AppBar from "@mui/material/AppBar";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
 import { Link as RouterLink } from "react-router-dom";
-import { useTheme } from "@material-ui/core/styles";
 
 export default function Header(props) {
   const { sections, title } = props;
-  const theme = useTheme();
   return (
     <React.Fragment>
-      <AppBar position="sticky" sx={{ zIndex: theme.zIndex.appBar }}>
+      <AppBar position="sticky" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar>
           <Link
             color="inherit"

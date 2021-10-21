@@ -1,24 +1,24 @@
 import React from "react";
-import Toolbar from "@material-ui/core/Toolbar";
-import Drawer from "@material-ui/core/Drawer";
-import Divider from "@material-ui/core/Divider";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import WorkIcon from "@material-ui/icons/Work";
-import HelpIcon from "@material-ui/icons/Help";
-import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
-import SchoolIcon from "@material-ui/icons/School";
-import CategoryIcon from "@material-ui/icons/Category";
-import EmailIcon from "@material-ui/icons/Email";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import { useTheme } from "@material-ui/core/styles";
+import Toolbar from "@mui/material/Toolbar";
+import Drawer from "@mui/material/Drawer";
+import Divider from "@mui/material/Divider";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import WorkIcon from "@mui/icons-material/Work";
+import HelpIcon from "@mui/icons-material/Help";
+import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
+import SchoolIcon from "@mui/icons-material/School";
+import CategoryIcon from "@mui/icons-material/Category";
+import EmailIcon from "@mui/icons-material/Email";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import Card from "@mui/material/Card";
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from "@mui/material/CardContent";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 import Header from "./Header";
 
@@ -123,7 +123,6 @@ const secondaryListItems = (
 );
 
 export default function Resume() {
-  const theme = useTheme();
   return (
     <div>
       <Header title="Renraku Computer Systems" sections={sections} />
@@ -134,7 +133,6 @@ export default function Resume() {
           sx={{
             width: drawerWidth,
             flexShrink: 0,
-            zIndex: theme.zIndex.drawer,
             "& .MuiDrawer-paper": {
               width: drawerWidth,
               boxSizing: "border-box",
@@ -167,6 +165,12 @@ export default function Resume() {
           >
             <Grid item xs={12} md={6} lg={4}>
               <Card>
+                  <CardMedia
+                  component="img"
+                  height="194"
+                  image="/static/images/cards/paella.jpg"
+                  alt="Paella dish"
+                />               
                 <CardContent>
                   <Typography variant="h5" component="h2">
                     Northrop Grumman, Mission Systems
