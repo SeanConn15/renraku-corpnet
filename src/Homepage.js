@@ -1,13 +1,11 @@
 import React from "react";
-import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import Grid from "@mui/material/Grid";
+
 import MainFeaturedPost from "./MainFeaturedPost";
 import FeaturedPost from "./FeaturedPost";
-
-import Sidebar from "./Sidebar";
 import Header from "./Header";
+
 
 const sections = [{ title: "Resume", url: "/resume" }];
 
@@ -17,7 +15,6 @@ const mainFeaturedPost = {
     "The home of all things Renraku, available straight from your Commlink.",
   image: "https://renraku-corpnet.com/shadowrun_skyline.jpg",
   imgText: "main image description",
-  linkText: "Continue reading…",
 };
 
 const featuredPosts = [
@@ -37,26 +34,12 @@ const featuredPosts = [
     image: "https://renraku-corpnet.com/shadowrun_matrix_gate.jpg",
     imageText: "Image Text",
   },
-];
-
-const sidebar = {
+  {
   title: "About",
   description:
     "Renraku Computer Systems serves the entirety of the sprawl with high-quality high-secuirty technological devices for anything from matrix surfing to everyday communication. We also specailize in private security, arcologies, weapons development, offensive cyber equiptment and training, hyper available data storage, and Intrusion Countermeasures, including black ICE.",
-  social: [
-    { name: "GitHub", link: "https://github.com/SeanConn15", icon: GitHubIcon },
-    {
-      name: "LinkedIn",
-      link: "https://www.linkedin.com/in/seanconn256/",
-      icon: LinkedInIcon,
-    },
-    {
-      name: "Code for this webpage",
-      link: "https://github.com/SeanConn15/renraku-corpnet",
-      icon: GitHubIcon,
-    },
-  ],
-};
+  },
+];
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -69,21 +52,24 @@ export default class Main extends React.Component {
       <div>
         <Header title="Renraku Computer Systems" sections={sections} />
         <Container maxWidth="lg">
-          <main>
-            <MainFeaturedPost post={mainFeaturedPost} />
-            <Grid container spacing={4}>
-              {featuredPosts.map((post) => (
-                <FeaturedPost key={post.title} post={post} />
-              ))}
+          <Grid container spacing={3}
+          >
+            <Grid item xs={12} >
+              <MainFeaturedPost post={mainFeaturedPost} />
+
             </Grid>
-            <Grid container spacing={5}>
-              <Sidebar
-                title={sidebar.title}
-                description={sidebar.description}
-                social={sidebar.social}
-              />
+
+            <Grid item xs={12}>
+              <Grid container spacing={3}>
+                  {featuredPosts.map((post) => (
+                      <Grid item xs={12} md={6}>
+                        <FeaturedPost post={post} />
+                      </Grid>
+                  ))}
+                </Grid>
             </Grid>
-          </main>
+
+        </Grid>
         </Container>
       </div>
     );

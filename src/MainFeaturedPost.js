@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
 
 export default function MainFeaturedPost(props) {
   const { post } = props;
@@ -12,7 +11,6 @@ export default function MainFeaturedPost(props) {
     <Paper
       style={{ backgroundImage: `url(${post.image})` }}
     >
-      {/* Increase the priority of the hero background image */}
       {
         <img
           style={{ display: "none" }}
@@ -21,23 +19,20 @@ export default function MainFeaturedPost(props) {
         />
       }
       <div/>
-      <Grid container>
-        <Grid item md={6}>
+      <Grid container spacing = {3} paddingBottom = "7%" paddingTop = "7%" paddingLeft = "5%">
+        <Grid item md={10}>
           <div>
             <Typography
               component="h1"
               variant="h3"
-              color="inherit"
+              color="white"
               gutterBottom
             >
               {post.title}
             </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
+            <Typography variant="h5" color="white" paragraph>
               {post.description}
             </Typography>
-            <Link variant="subtitle1" href="#">
-              {post.linkText}
-            </Link>
           </div>
         </Grid>
       </Grid>

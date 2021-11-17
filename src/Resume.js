@@ -126,7 +126,7 @@ export default function Resume() {
   return (
     <div>
       <Header title="Renraku Computer Systems" sections={sections} />
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", }}>
         <Drawer
           variant="permanent"
           open="true"
@@ -149,7 +149,6 @@ export default function Resume() {
         <Box
           component="main"
           sx={{
-            "margin-left": drawerWidth,
             flexGrow: 1,
             bgcolor: "background.default",
             p: 3,
@@ -161,15 +160,15 @@ export default function Resume() {
             direction="row"
             justifyContent="flex-start"
             alignItems="flex-start"
-            spacing="3"
+            spacing={3}
           >
-            <Grid item xs={12} md={6} lg={4}>
+            <Grid item xs={12} lg={6} xl={4}>
               <Card>
                   <CardMedia
                   component="img"
-                  height="194"
-                  image="/static/images/cards/paella.jpg"
-                  alt="Paella dish"
+                  height="300"
+                  image="https://renraku-corpnet.com/images/geostar3.jpg"
+                  alt="Northrop Grumman Satellite"
                 />               
                 <CardContent>
                   <Typography variant="h5" component="h2">
@@ -202,8 +201,14 @@ export default function Resume() {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={6} xl={4}>
+            <Grid item xs={12} lg={6} xl={4}>
               <Card>
+                  <CardMedia
+                  component="img"
+                  height="300"
+                  image="https://renraku-corpnet.com/images/aero_tarp.jpg"
+                  alt="Truck With AERO tarp"
+                />               
                 <CardContent>
                   <Typography variant="h5" component="h2">
                     Aero Industries, Engineering Department
@@ -227,16 +232,7 @@ export default function Resume() {
                 </CardContent>
               </Card>
             </Grid>
-          </Grid>
-
-          <Grid
-            container
-            direction="row"
-            justifyContent="flex-start"
-            alignItems="flex-start"
-            spacing="3"
-          >
-            <Grid item xs={12} md={4} lg={3}>
+            <Grid item xs={12} lg={6} xl={4}>
               <Card>
                 <CardContent>
                   <Typography variant="h5" component="h2">
@@ -254,8 +250,14 @@ export default function Resume() {
           </Grid>
           <br />
           <p id="education"> EDUCATION </p>
-          <Grid item xs={4}>
+          <Grid item xs={12} lg={6} xl={4}>
             <Card>
+              <CardMedia
+                  component="img"
+                  height="194"
+                  image="https://renraku-corpnet.com/images/purdue.jpg"
+                  alt="Purdue Logo Banner"
+                />               
               <CardContent>
                 <Typography variant="h5" component="h2">
                   Purdue University
@@ -298,14 +300,6 @@ export default function Resume() {
 
           <UnorderedList title="Hobbies/Interests" list={hobbies} />
 
-          <UnorderedList title="Websites" list={["This website"]} />
-
-          <UnorderedList
-            title="Anrdoid Development"
-            list={[
-              "Open Source contributions to Organic Maps; a google maps alternative",
-            ]}
-          />
         </Box>
       </Box>
     </div>

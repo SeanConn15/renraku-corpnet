@@ -8,7 +8,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"This webpage Copyright © "}
-      <Link color="inherit" href="mailto:seanconn256@protonmail.com">
+      <Link color="inherit" href="https://github.com/SeanConn15">
         Sean Connelly
       </Link>
       {", "}
